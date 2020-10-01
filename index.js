@@ -82,10 +82,10 @@ async function msgHandler (client, message) {
                                 .then(r => { if (!r) client.sendText(from, 'Maaf, link yang kamu kirim tidak memuat gambar.') })
                                 .catch(err => console.log('Caught exception: ', err))
                         } else {
-                            client.sendText(from, 'Maaf, link yang kamu kirim tidak valid.')
+                            client.sendText(from, 'Maaf, link yang telah kamu kirim tidak valid.')
                         }
                     } else {
-                        client.sendText(from, 'Tidak ada gambar! Untuk membuat sticker kirim gambar dengan caption #stiker')
+                        client.sendText(from, 'Gambar tidak ada! Untuk membuat sticker, kirim gambar dengan caption #stiker')
                     }
                     break
                 case '#tiktok':
@@ -100,7 +100,7 @@ async function msgHandler (client, message) {
                                 client.sendFile(from,videoMeta.urlbase64, filename, videoMeta.NoWaterMark ? caps : `⚠ Video tanpa watermark tidak tersedia. \n\n${caps}`)
                                     .catch(err => console.log('Caught exception: ', err))
                             }).catch((err) => {
-                                client.sendText(from, 'Gagal mengambil metadata, link yang kamu kirim tidak valid')
+                                client.sendText(from, 'Gagal mengambil metadata, link yang kamu kirimkan tidak valid')
                             });
                     }
                     break
@@ -126,7 +126,7 @@ async function msgHandler (client, message) {
                             }).catch((err) => {
                                 console.error(err)
                                 if (err == 'Not a video') return client.sendText(from, `Error, tidak ada video di link yang kamu kirim`)
-                                client.sendText(from, `Error, user private atau link salah`)
+                                client.sendText(from, `Error, user yang dipilih private atau link salah`)
                             });
                     }
                     break
